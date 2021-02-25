@@ -34,12 +34,14 @@ public class AssignmentTrackerFE {
 					removeAssignment();
 					break;
 				case 3:
+					markAssignmentComplete();
+				case 4:
 					printAllAssignments();
 					break;
-				case 4:
+				case 5:
 					saveToFile();
 					break;
-				case 5:
+				case 6:
 					readFromFile();
 					break;
 				case 0:
@@ -65,9 +67,10 @@ public class AssignmentTrackerFE {
 	{
 		System.out.println("- Enter 1 to ADD a new assignment.\n"
 			+ "- Enter 2 to REMOVE an assignment.\n"
-			+ "- Enter 3 to PRINT all assignments.\n"
-			+ "- Enter 4 to SAVE assignments.\n"
-			+ "- Enter 5 to LOAD assignments.\n"
+			+ "- Enter 3 to COMPLETE an assignment.\n"
+			+ "- Enter 4 to PRINT all assignments.\n"
+			+ "- Enter 5 to SAVE assignments.\n"
+			+ "- Enter 6 to LOAD assignments.\n"
 			+ "- Enter 0 to EXIT the program.\n"
 		);
 	}
@@ -125,6 +128,13 @@ public class AssignmentTrackerFE {
 			assignmentManager.readFromFile(DEF_DB_FILE);
 		else
 			assignmentManager.readFromFile(fileName);
+	}
+
+	public static void markAssignmentComplete()
+	{
+		System.out.print("Enter title of assignment you would like to mark completed: ");
+		String title = keyboard.nextLine();
+		assignmentManager.completeAssignment(title);
 	}
 }
 

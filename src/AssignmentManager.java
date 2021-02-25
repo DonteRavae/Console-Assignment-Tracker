@@ -131,4 +131,17 @@ public class AssignmentManager {
 			e.printStackTrace();
 		}
 	}
+
+	public void completeAssignment(String aTitle)
+	{
+		if(aTitle == null)
+			System.out.println("Invalid Input");
+		else
+			for(int i = 0; i < assignments.size(); i++)
+			{
+				var current = assignments.get(i);
+				if(current.getTitle().equals(aTitle))
+					current.toggleCompleted();
+			}
+	}
 }
