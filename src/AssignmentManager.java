@@ -5,6 +5,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.io.*;
 
 public class AssignmentManager {
@@ -34,8 +35,9 @@ public class AssignmentManager {
 	
 	public void printAssignments()
 	{
+		System.out.println("TITLE\tDUE DATE\tTIME DUE\tCOMPLETED\n");
 		for(Assignment a : assignments)
-			System.out.println(a);
+			System.out.println(a.getTitle() + DELIM + a.getDueDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + DELIM + a.getTimeDue() + DELIM + DELIM + a.isCompleted());
 	}
 	
 	public void removeAssignment(String aTitle)
@@ -82,16 +84,14 @@ public class AssignmentManager {
 		try
 		{
 			PrintWriter pw = new PrintWriter(new FileOutputStream(aFileName));
-			//Print Header
-			pw.println("Title" + DELIM + "Due Date" + DELIM + "Completed");
-			
+
 			for(Assignment a : assignments)
 			{
 				if(a == null)
 					break;
 				
 				//Print Body
-				pw.println(a.getTitle() + DELIM + a.getDueDate() + DELIM + a.isCompleted());
+				pw.println(a.getTitle() + DELIM + a.getDueDate() + DELIM + a.getTimeDue() + DELIM + a.isCompleted());
 			}
 			pw.close();
 		}

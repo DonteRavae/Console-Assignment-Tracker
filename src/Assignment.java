@@ -3,6 +3,7 @@
  */
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class Assignment {
 	private String title;
@@ -71,7 +72,7 @@ public class Assignment {
 	
 	public void setTimeDue(LocalTime aTimeDue)
 	{
-		if(aTimeDue == null || aTimeDue.isBefore(timeDue))
+		if(aTimeDue == null)
 			System.out.println("Invalid Time");
 		else
 			timeDue = aTimeDue;
@@ -84,7 +85,7 @@ public class Assignment {
 	
 	public String toString()
 	{
-		return "Title: " + this.title + "Due Date: " + this.dueDate + "Completed: " + this.completed;
+		return "Title: " + this.title + "\tDue Date: " + this.dueDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "\tTime Due: " + this.timeDue.format(DateTimeFormatter.ofPattern("HH:mm")) +  "\tCompleted: " + this.completed;
 	}
 	
 	public boolean equals(Assignment anAssignment)
