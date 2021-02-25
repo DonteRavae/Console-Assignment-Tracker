@@ -35,7 +35,7 @@ public class AssignmentManager {
 	
 	public void printAssignments()
 	{
-		System.out.println("TITLE\tDUE DATE\tTIME DUE\tCOMPLETED\n");
+		System.out.println("TITLE" + DELIM + "DUE DATE" + DELIM + "TIME DUE" + DELIM + "COMPLETED\n");
 		for(Assignment a : assignments)
 			System.out.println(a.getTitle() + DELIM + a.getDueDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + DELIM + a.getTimeDue() + DELIM + DELIM + a.isCompleted());
 	}
