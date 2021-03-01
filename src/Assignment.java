@@ -5,7 +5,8 @@
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-public class Assignment {
+public class Assignment 
+{
 	private String title;
 	private LocalDate dueDate;
 	private LocalTime timeDue;
@@ -15,6 +16,7 @@ public class Assignment {
 	{
 		this.setTitle("");
 		this.setDueDate(LocalDate.now());
+		this.setTimeDue(LocalTime.parse("23:59"));
 		completed = false;
 	}
 	

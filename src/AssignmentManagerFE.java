@@ -7,10 +7,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Scanner;
 
-public class AssignmentTrackerFE {
+public class AssignmentManagerFE 
+{
 	private static Scanner keyboard = new Scanner(System.in);
 	private static AssignmentManager assignmentManager = new AssignmentManager();
-	private static final String BRAND = "Assignment Tracker";
+	private static final String BRAND = "Assignment Manager";
 	private static final String DEF_DB_FILE = "assignments.txt"; 
 	
 	public static void main(String[] args) {
@@ -101,6 +102,7 @@ public class AssignmentTrackerFE {
 		System.out.print("Enter the title of the assignment you would like to remove: ");
 		String title = keyboard.nextLine();
 		assignmentManager.removeAssignment(title);
+		System.out.println();
 	}
 
 	public static void printAllAssignments()
@@ -114,9 +116,15 @@ public class AssignmentTrackerFE {
 		System.out.print("Enter file save location: ("+DEF_DB_FILE+") ");
 		String fileName = keyboard.nextLine();
 		if(!(fileName.length() > 0))
+		{
 			assignmentManager.writeToFile(DEF_DB_FILE);
+			System.out.println();
+		}
 		else
+		{
 			assignmentManager.writeToFile(fileName);
+			System.out.println();
+		}
 	}
 
 	public static void readFromFile()
@@ -125,9 +133,15 @@ public class AssignmentTrackerFE {
 		String fileName = keyboard.nextLine();
 		System.out.println();
 		if(!(fileName.length() > 0))
+		{
 			assignmentManager.readFromFile(DEF_DB_FILE);
+			System.out.println();
+		}
 		else
+		{
 			assignmentManager.readFromFile(fileName);
+			System.out.println();
+		}
 	}
 
 	public static void markAssignmentComplete()
@@ -135,6 +149,7 @@ public class AssignmentTrackerFE {
 		System.out.print("Enter title of assignment you would like to mark completed: ");
 		String title = keyboard.nextLine();
 		assignmentManager.completeAssignment(title);
+		System.out.println();
 	}
 }
 

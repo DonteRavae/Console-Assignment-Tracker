@@ -8,7 +8,8 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.io.*;
 
-public class AssignmentManager {
+public class AssignmentManager 
+{
 	private ArrayList<Assignment> assignments;
 	public static final int FILE_COL_AMT = 3;
 	public static final String DELIM = "\t";
@@ -35,7 +36,7 @@ public class AssignmentManager {
 	
 	public void printAssignments()
 	{
-		System.out.println("TITLE" + DELIM + "DUE DATE" + DELIM + "TIME DUE" + DELIM + "COMPLETED\n");
+		System.out.println("TITLE" + DELIM + DELIM + "DUE DATE" + DELIM + DELIM + "TIME DUE" + DELIM + DELIM + "COMPLETED\n");
 		for(Assignment a : assignments)
 			System.out.println(a.getTitle() + DELIM + a.getDueDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + DELIM + a.getTimeDue() + DELIM + DELIM + a.isCompleted());
 	}
